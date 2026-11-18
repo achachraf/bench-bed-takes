@@ -1,0 +1,74 @@
+name: Remix an app
+description: Send one prompt edit for an app you reviewed. It runs once on the same model, and the result joins the bench if it is approved.
+title: "Remix: "
+labels: ["remix"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Rules**
+        - You need an approved take on this app first.
+        - One edit: add one paragraph to the prompt, or replace one paragraph. At most 400 characters of new text.
+        - The edited prompt runs once, on the same model and setup as the original. No retries, no hand edits.
+        - The original app never changes. Your remix is shown next to it, with your edit highlighted.
+  - type: input
+    id: bench
+    attributes:
+      label: Challenge
+      description: Filled in from the site. Leave it as it is.
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: App
+      description: Filled in from the site. Leave it as it is.
+    validations:
+      required: true
+  - type: input
+    id: take
+    attributes:
+      label: Your approved take
+      description: Link to your take issue, for example #12.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of edit
+      options:
+        - Add a new paragraph
+        - Replace an existing paragraph
+    validations:
+      required: true
+  - type: textarea
+    id: replaces
+    attributes:
+      label: Paragraph to replace
+      description: Paste the paragraph from the original prompt exactly. Leave empty when you add a paragraph.
+  - type: textarea
+    id: after
+    attributes:
+      label: Insert after
+      description: When you add a paragraph, paste the start of the paragraph it should follow. Leave empty to add it at the end.
+  - type: textarea
+    id: edit
+    attributes:
+      label: Your paragraph
+      description: The new text, 400 characters at most.
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: What should it fix?
+      description: One sentence, shown with your remix. For example "Keep the figure-8 stable for a full minute".
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Publishing
+      options:
+        - label: I agree that this remix, its prompt and the resulting app may be published on bench.achraf.app with my GitHub handle.
+          required: true

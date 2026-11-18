@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Browse the apps
+    url: https://bench.achraf.app
+    about: Open an app, then use "Give your take" on its card.

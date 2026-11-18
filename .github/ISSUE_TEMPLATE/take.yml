@@ -1,0 +1,59 @@
+name: Give your take
+description: Tell us what one app got right or wrong. Approved takes appear on bench.achraf.app and earn you one remix.
+title: "Take: "
+labels: ["take"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open the app, try it against the brief, then tell us what you saw.
+        If your take is approved, it appears on the app's card with your GitHub handle,
+        and you can send **one prompt edit** for that app.
+  - type: input
+    id: bench
+    attributes:
+      label: Challenge
+      description: Filled in from the site. Leave it as it is.
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: App
+      description: Filled in from the site. Leave it as it is.
+    validations:
+      required: true
+  - type: dropdown
+    id: verdict
+    attributes:
+      label: Verdict
+      options:
+        - It nails the brief
+        - Close, with a few misses
+        - It misses the brief
+    validations:
+      required: true
+  - type: checkboxes
+    id: areas
+    attributes:
+      label: Where does it fall short?
+      options:
+        - label: Missing or wrong features from the brief
+        - label: Wrong results (physics, training, numbers)
+        - label: Look and feel
+        - label: Phone layout
+        - label: Performance
+  - type: textarea
+    id: take
+    attributes:
+      label: Your take
+      description: What did you try, and what happened? Two to five sentences is plenty.
+    validations:
+      required: true
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Publishing
+      options:
+        - label: I agree that this take may be published on bench.achraf.app with my GitHub handle.
+          required: true
